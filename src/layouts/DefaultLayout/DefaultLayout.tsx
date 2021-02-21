@@ -8,11 +8,11 @@ import React from 'react';
 import { SEO } from '../SEO/SEO';
 import { ThemeProvider } from 'styled-components';
 
-type AppLayoutProperties = {
+type DefaultLayoutProps = {
   pageTitle: string;
 };
 
-export const AppLayout: React.FC<AppLayoutProperties> = ({
+export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   pageTitle,
   children,
 }) => {

@@ -1,6 +1,6 @@
 import { Box, Heading } from '@ui';
 
-import { AppLayout } from '@layout';
+import { AppLayout } from 'layouts';
 import React from 'react';
 
 const About = () => {

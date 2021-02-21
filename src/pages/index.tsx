@@ -1,4 +1,4 @@
-import { AppLayout } from '@layout';
+import { AppLayout } from 'layouts';
 import { EventMain } from '@event';
 import React from 'react';
 
