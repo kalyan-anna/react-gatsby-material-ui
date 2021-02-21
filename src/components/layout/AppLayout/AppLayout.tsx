@@ -1,6 +1,6 @@
 import '../../../theme/fonts.css';
 
-import { Footer, Header } from '@ui';
+import { Box, Footer, Header } from '@ui';
 import { GlobalStyle, theme } from '@theme';
 import { graphql, useStaticQuery } from 'gatsby';
 
@@ -34,9 +34,13 @@ export const AppLayout: React.FC<AppLayoutProperties> = ({
     <ThemeProvider theme={theme}>
       <SEO pageTitle={pageTitle} appTitle={appTitle} />
       <GlobalStyle />
-      <Header appTitle={appTitle} />
-      <main>{children}</main>
-      <Footer />
+      <Box display="flex" flexDirection="column" minHeight="100vh">
+        <Header appTitle={appTitle} />
+        <Box flexGrow={2}>
+          <main>{children}</main>
+        </Box>
+        <Footer />
+      </Box>
     </ThemeProvider>
   );
 };
