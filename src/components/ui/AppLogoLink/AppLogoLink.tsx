@@ -10,7 +10,13 @@ interface AppLogoLinkProps {
 const AppLogoLink: React.FC<AppLogoLinkProps> = ({ appTitle }) => (
   <Box display="flex" alignItems="center">
     <Logo />
-    <Text mx={3} fontSize={[4, 5]}>
+    <Text
+      mx={[2, 3]}
+      fontSize={[4, 5]}
+      fontWeight={6}
+      letterSpacing="tracked"
+      fontStyle="oblique"
+    >
       {appTitle}
     </Text>
   </Box>

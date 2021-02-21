@@ -12,8 +12,9 @@ const Header: React.FC<HeaderProps> = ({ appTitle }) => {
       flexDirection="row"
       alignItems="center"
       display="flex"
-      px={4}
-      py={3}
+      px={[3, 4]}
+      py={[2, 3]}
+      boxShadow="elevation2"
     >
       <AppLogoLink appTitle={appTitle} />
     </Box>
