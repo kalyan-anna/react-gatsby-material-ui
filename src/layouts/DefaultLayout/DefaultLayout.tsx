@@ -1,4 +1,4 @@
-import '../../../theme/fonts.css';
+import '../../theme/fonts.css';
 
 import { Box, Footer, Header } from '@ui';
 import { GlobalStyle, theme } from '@theme';

@@ -1,1 +1,1 @@
-export * from './EventMain/EventMain';
+export * from './EventListContainer/EventListContainer';

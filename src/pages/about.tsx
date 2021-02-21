@@ -1,11 +1,11 @@
 import { Box, Heading } from '@ui';
 
-import { AppLayout } from 'layouts';
+import { DefaultLayout } from 'layouts';
 import React from 'react';
 
 const About = () => {
   return (
-    <AppLayout pageTitle="About">
+    <DefaultLayout pageTitle="About">
       <Box alignItems="start" flexDirection="column" display="flex">
         <Heading>About</Heading>
         <div>
@@ -20,7 +20,7 @@ const About = () => {
           <li>Redux</li>
         </ul>
       </Box>
-    </AppLayout>
+    </DefaultLayout>
   );
 };
 

@@ -2,14 +2,15 @@ import { Box, TextInput } from '@ui';
 import React, { ChangeEvent, useCallback } from 'react';
 
 import debounce from 'lodash.debounce';
+import { filterByKeyword } from '@state/filter';
 import { useDispatch } from 'react-redux';
 
-const EventMain = () => {
+const EventListContainer = () => {
   const dispatch = useDispatch();
 
   const debouncedDispatch = useCallback(
     debounce((value: string) => {
-      console.log('value:', value);
+      dispatch(filterByKeyword(value));
     }, 250),
     [],
   );
@@ -30,4 +31,4 @@ const EventMain = () => {
   );
 };
 
-export { EventMain };
+export { EventListContainer };

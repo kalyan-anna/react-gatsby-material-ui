@@ -1,11 +1,11 @@
 import { Box, Heading } from '@ui';
 
-import { AppLayout } from 'layouts';
+import { DefaultLayout } from 'layouts';
 import React from 'react';
 
 const Contact = () => {
   return (
-    <AppLayout pageTitle="Contact">
+    <DefaultLayout pageTitle="Contact">
       <Box alignItems="start" flexDirection="column" display="flex">
         <Heading>Contact</Heading>
         <p>
@@ -13,7 +13,7 @@ const Contact = () => {
           <a href="mailto: kalyan.anna@yahoo.com">kalyan.anna@yahoo.com</a>
         </p>
       </Box>
-    </AppLayout>
+    </DefaultLayout>
   );
 };
 

@@ -1,19 +1,13 @@
-import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from 'state/store';
+import { createSelector } from '@reduxjs/toolkit';
 
 const selectFilterState = (state: RootState) => state.filter;
 
-const selectFilters = createSelector(
+const selectKeyword = createSelector(
   selectFilterState,
-  ({ filters }) => filters,
-);
-
-const selectSortType = createSelector(
-  selectFilterState,
-  ({ sort }) => sort.type,
+  ({ filters }) => filters.keyword,
 );
 
 export const filterSelectors = {
-  selectFilters,
-  selectSortType,
+  selectKeyword,
 };

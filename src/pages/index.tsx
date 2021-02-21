@@ -1,11 +1,11 @@
-import { AppLayout } from 'layouts';
-import { EventMain } from '@event';
+import { DefaultLayout } from 'layouts';
+import { EventListContainer } from '@event';
 import React from 'react';
 
 const IndexPage = () => (
-  <AppLayout pageTitle="Home">
-    <EventMain />
-  </AppLayout>
+  <DefaultLayout pageTitle="Home">
+    <EventListContainer />
+  </DefaultLayout>
 );
 
 export default IndexPage;
