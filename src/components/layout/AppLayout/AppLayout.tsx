@@ -1,3 +1,5 @@
+import '../../../theme/font';
+
 import { Footer, Header } from '@ui';
 import { GlobalStyle, theme } from '@theme';
 import { graphql, useStaticQuery } from 'gatsby';

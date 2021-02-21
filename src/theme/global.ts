@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
   #___gatsby {
     min-height: 100vh;
     font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
   }
 
   body {

@@ -27,4 +27,8 @@ const Text = styled.div<TextProps>`
   ${color}
 `;
 
+Text.defaultProps = {
+  color: 'font',
+};
+
 export { Text };
