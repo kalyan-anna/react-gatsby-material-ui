@@ -36,7 +36,7 @@ export const AppLayout: React.FC<AppLayoutProperties> = ({
       <GlobalStyle />
       <Header appTitle={appTitle} />
       <main>{children}</main>
-      <Footer appTitle={appTitle} />
+      <Footer />
     </ThemeProvider>
   );
 };

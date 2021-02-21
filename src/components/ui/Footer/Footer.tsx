@@ -1,4 +1,4 @@
-import { Col, Grid, Row } from 'react-styled-flexboxgrid';
+import { Col, Row } from 'react-styled-flexboxgrid';
 
 import { AnchorLink } from '../AnchorLink/AnchorLink';
 import { Box } from '../Box/Box';
@@ -12,18 +12,13 @@ const Footer = () => {
       minHeight={[100, 75]}
       p={[3, 4]}
       display="flex"
-      alignItems="center"
     >
-      <Row top="xs">
+      <Row>
         <Col xs={12} sm={6}>
-          <AnchorLink to="/contact" my={3}>
-            Contact
-          </AnchorLink>
+          <AnchorLink to="/contact">Contact</AnchorLink>
         </Col>
         <Col xs={12} sm={6}>
-          <AnchorLink to="/about" my={3}>
-            About
-          </AnchorLink>
+          <AnchorLink to="/about">About</AnchorLink>
         </Col>
       </Row>
     </Box>
