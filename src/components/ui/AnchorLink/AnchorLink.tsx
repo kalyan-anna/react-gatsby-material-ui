@@ -1,10 +1,14 @@
+import { ColorProps, SpaceProps, color, space } from 'styled-system';
 import { GatsbyLinkProps, Link } from 'gatsby';
-import { SpaceProps, space } from 'styled-system';
 
 import styled from 'styled-components';
 import { theme } from '@theme';
 
-type AnchorLinkProps = GatsbyLinkProps<any> & SpaceProps;
+type AnchorLinkProps = GatsbyLinkProps<any> &
+  SpaceProps &
+  ColorProps & {
+    disableDecoration: boolean;
+  };
 
 const AnchorLink = styled(Link)<AnchorLinkProps>(
   {
@@ -17,6 +21,25 @@ const AnchorLink = styled(Link)<AnchorLinkProps>(
     },
   },
   space,
+  color,
+  props => {
+    if (props.disableDecoration) {
+      return {
+        '&:hover': {
+          textDecoration: 'none',
+        },
+      };
+    }
+    return {
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    };
+  },
 );
+
+AnchorLink.defaultProps = {
+  color: 'font',
+};
 
 export { AnchorLink };

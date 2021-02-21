@@ -5,3 +5,4 @@ export * from './Box/Box';
 export * from './Text/Text';
 export * from './AppLogoLink/AppLogoLink';
 export * from './AnchorLink/AnchorLink';
+export * from './Heading/Heading';

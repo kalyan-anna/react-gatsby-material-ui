@@ -41,7 +41,7 @@ export const theme: Theme = {
     minHeights: [16, 32, 64, 128, 256, 512, 768, 1024, 1536],
   },
   colors: {
-    color: '#2f516d',
+    font: '#2f516d',
     fontSecondary: '#899bb2',
     primary: '#e1e1e1',
     secondary: '#ffffff',

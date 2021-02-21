@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Box
       as="footer"
-      backgroundColor="primary"
+      backgroundColor="secondary"
       minHeight={[100, 75]}
       p={[3, 4]}
       display="flex"

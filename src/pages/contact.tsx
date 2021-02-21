@@ -1,15 +1,18 @@
+import { Box, Heading } from '@ui';
+
 import { AppLayout } from '@layout';
 import React from 'react';
 
 const Contact = () => {
   return (
     <AppLayout pageTitle="Contact">
-      <div>
+      <Box alignItems="start" flexDirection="column" display="flex">
+        <Heading>Contact</Heading>
         <p>
           <span style={{ marginRight: '5px' }}>Contact me on</span>
           <a href="mailto: kalyan.anna@yahoo.com">kalyan.anna@yahoo.com</a>
         </p>
-      </div>
+      </Box>
     </AppLayout>
   );
 };

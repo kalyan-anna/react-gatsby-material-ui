@@ -36,8 +36,14 @@ export const AppLayout: React.FC<AppLayoutProperties> = ({
       <GlobalStyle />
       <Box display="flex" flexDirection="column" minHeight="100vh">
         <Header appTitle={appTitle} />
-        <Box flexGrow={2}>
-          <main>{children}</main>
+        <Box
+          flexGrow={2}
+          px={[3, 4]}
+          py={[2, 3]}
+          as="main"
+          backgroundColor="primary"
+        >
+          {children}
         </Box>
         <Footer />
       </Box>
