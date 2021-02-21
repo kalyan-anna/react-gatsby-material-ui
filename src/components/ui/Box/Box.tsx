@@ -22,17 +22,6 @@ type BoxProps = LayoutProps &
   BorderProps &
   ShadowProps;
 
-const Box = styled.div<BoxProps>(
-  {
-    boxSizing: 'border-box',
-    minWidth: 0,
-  },
-  space,
-  color,
-  layout,
-  flexbox,
-  border,
-  shadow,
-);
+const Box = styled.div<BoxProps>(space, color, layout, flexbox, border, shadow);
 
 export { Box, BoxProps };

@@ -1,16 +1,22 @@
 import { GatsbyLinkProps, Link } from 'gatsby';
+import { SpaceProps, space } from 'styled-system';
 
 import styled from 'styled-components';
 import { theme } from '@theme';
 
-const AnchorLink = styled(Link)<GatsbyLinkProps<any>>({
-  textDecoration: 'none',
-  '&:hover': {
-    textDecoration: 'underline',
+type AnchorLinkProps = GatsbyLinkProps<any> & SpaceProps;
+
+const AnchorLink = styled(Link)<AnchorLinkProps>(
+  {
+    textDecoration: 'none',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
+    '&:focus': {
+      outline: `2px solid ${theme?.colors?.secondaryFont}`,
+    },
   },
-  '&:focus': {
-    outline: `2px solid ${theme?.colors?.secondaryFont}`,
-  },
-});
+  space,
+);
 
 export { AnchorLink };
