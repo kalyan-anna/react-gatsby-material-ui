@@ -1,4 +1,6 @@
-export const theme = {
+import { Theme } from 'styled-system';
+
+export const theme: Theme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 36, 48, 80, 96],
   fontWeights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
@@ -32,11 +34,13 @@ export const theme = {
       'rgb(0 0 0 / 20%) 0px 3px 3px -2px, rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px',
   },
   radii: [0, 2, 4, 16, 9999, '100%'],
-  width: [16, 32, 64, 128, 256],
-  heights: [16, 32, 64, 128, 256],
-  maxWidths: [16, 32, 64, 128, 256, 512, 768, 1024, 1536],
+  sizes: {
+    width: [16, 32, 64, 128, 256],
+    heights: [16, 32, 64, 128, 256],
+    maxWidths: [16, 32, 64, 128, 256, 512, 768, 1024, 1536],
+  },
   colors: {
-    font: '#2f516d',
+    color: '#2f516d',
     fontSecondary: '#899bb2',
     primary: '#e1e1e1',
     secondary: '#ffffff',

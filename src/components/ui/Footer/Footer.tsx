@@ -1,10 +1,6 @@
 import { Box } from '../Box/Box';
 import React from 'react';
 
-interface FooterProps {
-  appTitle: string;
-}
-
 // const FooterContent = () => {
 //   return (
 //     <Nav direction="row" pad="medium">
@@ -14,9 +10,9 @@ interface FooterProps {
 //   );
 // };
 
-const Footer: React.FC<FooterProps> = ({ appTitle: title }) => {
+const Footer = () => {
   return (
-    <Box as="footer">
+    <Box as="footer" backgroundColor="primary">
       <div>This is a footer</div>
     </Box>
   );

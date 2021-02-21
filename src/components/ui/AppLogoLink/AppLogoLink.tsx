@@ -1,3 +1,4 @@
+import { AnchorLink } from '../AnchorLink/AnchorLink';
 import { Box } from '../Box/Box';
 import { Logo } from '../Logo/Logo';
 import React from 'react';
@@ -8,7 +9,7 @@ interface AppLogoLinkProps {
 }
 
 const AppLogoLink: React.FC<AppLogoLinkProps> = ({ appTitle }) => (
-  <Box display="flex" alignItems="center">
+  <Box display="flex" alignItems="center" as={AnchorLink} to="/">
     <Logo />
     <Text
       mx={[2, 3]}

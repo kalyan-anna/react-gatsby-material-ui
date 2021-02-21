@@ -31,8 +31,4 @@ const Text = styled.div<TextProps>`
   ${typography}
 `;
 
-Text.defaultProps = {
-  color: 'font',
-};
-
 export { Text };
