@@ -8,6 +8,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ appTitle }) => {
+  console.log('loading...')
   return (
     <GrommetHeader
       background="light-2"

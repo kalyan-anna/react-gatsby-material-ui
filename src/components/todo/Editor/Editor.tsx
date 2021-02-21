@@ -1,6 +1,4 @@
 import React from 'react';
-import { Box, Button, Heading } from 'grommet';
-import { Add } from 'grommet-icons';
 import { NewTaskModal } from '../NewTaskModal/NewTaskModal';
 import { TaskList } from '../TaskList/TaskList';
 import { FilterPanel } from '../FilterPanel/FilterPanel';
