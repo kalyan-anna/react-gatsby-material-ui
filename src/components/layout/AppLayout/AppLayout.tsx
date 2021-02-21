@@ -1,10 +1,10 @@
+import { Footer, Header } from '@ui';
+import { GlobalStyle, theme } from '@theme';
+import { graphql, useStaticQuery } from 'gatsby';
+
 import React from 'react';
 import { SEO } from '../SEO/SEO';
-import { Footer, Header } from '@ui';
-import { Grommet, Main } from 'grommet';
-import { theme } from '@themes';
-import { graphql, useStaticQuery } from 'gatsby';
-import '../../../themes/global.css';
+import { ThemeProvider } from 'styled-components';
 
 type AppLayoutProperties = {
   pageTitle: string;
@@ -29,20 +29,12 @@ export const AppLayout: React.FC<AppLayoutProperties> = ({
   const appTitle: string = site.siteMetadata?.title;
 
   return (
-    <Grommet
-      theme={theme}
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
-      }}
-    >
+    <ThemeProvider theme={theme}>
       <SEO pageTitle={pageTitle} appTitle={appTitle} />
+      <GlobalStyle />
       <Header appTitle={appTitle} />
-      <Main pad="small" flex="grow">
-        {children}
-      </Main>
+      <main>{children}</main>
       <Footer appTitle={appTitle} />
-    </Grommet>
+    </ThemeProvider>
   );
 };

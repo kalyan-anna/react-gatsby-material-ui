@@ -1,13 +1,21 @@
-import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
+
 import Img from 'gatsby-image';
+import React from 'react';
 
 export const Logo = (props: any) => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
+      mobileImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(height: 25, width: 25) {
+          fixed(width: 50, height: 50) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+      desktopImage: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fixed(width: 75, height: 75) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -15,9 +23,20 @@ export const Logo = (props: any) => {
     }
   `);
 
-  if (!data?.placeholderImage?.childImageSharp?.fixed) {
+  if (
+    !data?.mobileImage?.childImageSharp?.fixed ||
+    !data?.desktopImage?.childImageSharp?.fixed
+  ) {
     return <div>Picture not found</div>;
   }
 
-  return <Img {...props} fixed={data.placeholderImage.childImageSharp.fixed} />;
+  const sources = [
+    data.mobileImage.childImageSharp.fixed,
+    {
+      ...data.desktopImage.childImageSharp.fixed,
+      media: `(min-width: 768px)`,
+    },
+  ];
+
+  return <Img {...props} fixed={sources} alt="Pinata logo" />;
 };

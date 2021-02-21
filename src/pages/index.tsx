@@ -1,10 +1,9 @@
-import { Editor } from '@todo';
-import React from 'react';
 import { AppLayout } from '@layout';
+import React from 'react';
 
 const IndexPage = () => (
   <AppLayout pageTitle="Home">
-    <Editor />
+    <div>Home</div>
   </AppLayout>
 );
 

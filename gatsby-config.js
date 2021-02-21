@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 module.exports = {
   siteMetadata: {
-    title: `DoDoist`,
+    title: `Pinata`,
     description: `Sample gatsby styled-component project`,
     author: `Kalyan Annamalai`,
   },
@@ -20,12 +20,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
-        short_name: `starter`,
+        short_name: `Pinata`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#e1e1e1`,
+        theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`,
       },
     },
     {

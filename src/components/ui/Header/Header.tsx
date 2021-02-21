@@ -1,40 +1,22 @@
+import { AppLogoLink } from '../AppLogoLink/AppLogoLink';
+import { Box } from '../Box/Box';
 import React from 'react';
-import { Header as GrommetHeader, Heading, Text } from 'grommet';
-import { Logo } from '../Logo/Logo';
-import { Link } from 'gatsby';
-
 interface HeaderProps {
   appTitle: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ appTitle }) => {
-  console.log('loading...')
   return (
-    <GrommetHeader
-      background="light-2"
-      justify="start"
-      border={{
-        color: 'brand',
-        size: 'small',
-        side: 'bottom',
-      }}
-      height="xsmall"
-      pad="medium"
+    <Box
+      as="header"
+      flexDirection="row"
+      alignItems="center"
+      display="flex"
+      px={4}
+      py={3}
     >
-      <Heading size="small">
-        <Link
-          to="/"
-          style={{
-            textDecoration: `none`,
-          }}
-        >
-          <Logo style={{ marginRight: '10px' }} />
-          <Text color="brand" size="xlarge">
-            {appTitle}
-          </Text>
-        </Link>
-      </Heading>
-    </GrommetHeader>
+      <AppLogoLink appTitle={appTitle} />
+    </Box>
   );
 };
 
