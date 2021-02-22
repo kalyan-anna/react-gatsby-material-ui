@@ -29,6 +29,14 @@ const popularEvents = createSelector(selectEventState, ({ popular }) =>
   Object.values(popular),
 );
 
+function filterEvents(events: Event[], keyword: string): Event[] {
+  const trimedKeyword = (keyword && keyword.trim()) || '';
+  if (!trimedKeyword) {
+    return events;
+  }
+  return events.filter(e => e.title.includes(trimedKeyword));
+}
+
 const filteredFeatureEvents = createSelector(
   featuredEvents,
   filterSelectors.selectKeyword,
@@ -40,17 +48,6 @@ const filteredPopularEvents = createSelector(
   filterSelectors.selectKeyword,
   (events, keyword) => filterEvents(events, keyword),
 );
-
-function filterEvents(events: Event[], keyword: string): Event[] {
-  const trimedKeyword = (keyword && keyword.trim()) || '';
-  if (!trimedKeyword) {
-    return events;
-  }
-
-  return events.filter(
-    e => e.title.includes(trimedKeyword) || e.location.includes(trimedKeyword),
-  );
-}
 
 export const eventSelectors = {
   isAlreadyLoaded,

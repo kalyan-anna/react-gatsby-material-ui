@@ -17,15 +17,26 @@ const AppLogoLink: React.FC<AppLogoLinkProps> = ({ appTitle }) => (
     disableDecoration={true}
   >
     <Logo />
-    <Text
-      mx={[2, 3]}
-      fontSize={[4, 5]}
-      fontWeight={6}
-      letterSpacing="tracked"
-      fontStyle="oblique"
-    >
-      {appTitle}
-    </Text>
+    <Box display="flex" flexDirection="column">
+      <Text
+        mx={[2, 3]}
+        fontSize={[4, 5]}
+        fontWeight={6}
+        letterSpacing="tracked"
+        fontStyle="oblique"
+      >
+        {appTitle}
+      </Text>
+      <Text
+        mx={[2, 3]}
+        fontSize={2}
+        fontWeight={6}
+        fontStyle="oblique"
+        color="secondary"
+      >
+        Place for events...
+      </Text>
+    </Box>
   </Box>
 );
 

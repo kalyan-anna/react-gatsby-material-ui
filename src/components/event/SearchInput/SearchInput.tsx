@@ -22,7 +22,7 @@ const SearchInput = () => {
   return (
     <Box width={[1, 1, 1 / 2, 1 / 4]}>
       <TextInput
-        placeholder="Search for events"
+        placeholder="Search for events..."
         onChange={handleSeachOnChange}
       />
     </Box>
