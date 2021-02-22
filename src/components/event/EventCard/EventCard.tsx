@@ -8,7 +8,9 @@ interface EventCardProps {
 }
 
 export const EventCard: React.FC<EventCardProps> = ({ event }) => {
-  const cardBody = <img src={event.img} width="100%"></img>;
+  const cardBody = (
+    <img src={event.img} style={{ width: '100%', height: '100%' }}></img>
+  );
 
   const cardFooter = (
     <Box display="flex" flexDirection="column">
@@ -21,5 +23,13 @@ export const EventCard: React.FC<EventCardProps> = ({ event }) => {
     </Box>
   );
 
-  return <Card body={cardBody} footer={cardFooter} />;
+  return (
+    <Card
+      body={cardBody}
+      footer={cardFooter}
+      width="300px"
+      height="300px"
+      m={2}
+    />
+  );
 };

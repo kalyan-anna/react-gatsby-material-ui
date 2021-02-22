@@ -36,7 +36,14 @@ const EventListContainer = () => {
   return (
     <Box alignItems="start" flexDirection="column" display="flex" my={4}>
       <SearchInput />
-      <Box backgroundColor="panelBackground" width="100%" px={4} py={1} mt={4}>
+      <Box
+        backgroundColor="panelBackground"
+        width="100%"
+        px={4}
+        pt={3}
+        pb={5}
+        mt={4}
+      >
         <PopularPanel />
         <FeaturedPanel />
       </Box>
