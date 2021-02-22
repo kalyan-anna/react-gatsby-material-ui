@@ -1,7 +1,7 @@
-export const LOAD_EVENTS = 'todos/loadEvents';
-export const POPULAR_EVENTS_LOADED = 'todos/popularEventsLoaded';
-export const FEATURED_EVENTS_LOADED = 'todos/featuredEventsLoaded';
-export const API_ERROR = 'todos/apiError';
+export const LOAD_EVENTS = 'event/loadEvents';
+export const POPULAR_EVENTS_LOADED = 'event/popularEventsLoaded';
+export const FEATURED_EVENTS_LOADED = 'event/featuredEventsLoaded';
+export const API_ERROR = 'event/apiError';
 
 export interface Event {
   title: string;

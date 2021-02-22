@@ -8,7 +8,7 @@ module.exports = {
     '^.+\\.(ts|tsx)$': 'ts-jest',
   },
   moduleNameMapper: {
-    '@state/todos': ['<rootDir>/src/state/todos/index.ts'],
+    '@state/event': ['<rootDir>/src/state/event/index.ts'],
     '@state/filter': ['<rootDir>/src/state/filter/index.ts'],
   },
 };

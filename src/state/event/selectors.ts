@@ -34,7 +34,9 @@ function filterEvents(events: Event[], keyword: string): Event[] {
   if (!trimedKeyword) {
     return events;
   }
-  return events.filter(e => e.title.includes(trimedKeyword));
+  return events.filter(e =>
+    e.title.toLowerCase().includes(trimedKeyword.toLowerCase()),
+  );
 }
 
 const filteredFeatureEvents = createSelector(

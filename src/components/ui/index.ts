@@ -7,3 +7,4 @@ export * from './AppLogoLink/AppLogoLink';
 export * from './AnchorLink/AnchorLink';
 export * from './Heading/Heading';
 export * from './TextInput/TextInput';
+export * from './Card/Card';

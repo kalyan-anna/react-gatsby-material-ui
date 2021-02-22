@@ -43,7 +43,7 @@
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
     "baseUrl": "src" /* Base directory to resolve non-absolute module names. */,
     "paths": {
-      "@state/todos": ["state/todos/index.ts"],
+      "@state/event": ["state/event/index.ts"],
       "@state/filter": ["state/filter/index.ts"],
       "@ui": ["components/ui/index.ts"],
       "@layout": ["layout/index.ts"],
