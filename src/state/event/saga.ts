@@ -1,11 +1,11 @@
-import { Event, LOAD_EVENTS } from './types';
+import { EventDetails, LOAD_EVENTS } from './types';
 import { apiError, featuredEventsLoaded, popularEventsLoaded } from './actions';
 import { call, delay, put, takeLatest } from 'redux-saga/effects';
 
 import { api } from '../../services/api';
 import snakecase from 'lodash.snakecase';
 
-function addIdToEvent(data: any): Event[] {
+function addIdToEvent(data: any): EventDetails[] {
   return data.map((item: any) => ({ ...item, id: snakecase(item.title) }));
 }
 

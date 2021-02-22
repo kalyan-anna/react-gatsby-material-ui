@@ -1,4 +1,4 @@
-import { Event } from './types';
+import { EventDetails } from './types';
 import { RootState } from 'state/store';
 import { createSelector } from '@reduxjs/toolkit';
 import { filterSelectors } from '@state/filter';
@@ -29,7 +29,7 @@ const popularEvents = createSelector(selectEventState, ({ popular }) =>
   Object.values(popular),
 );
 
-function filterEvents(events: Event[], keyword: string): Event[] {
+function filterEvents(events: EventDetails[], keyword: string): EventDetails[] {
   const trimedKeyword = (keyword && keyword.trim()) || '';
   if (!trimedKeyword) {
     return events;

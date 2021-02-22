@@ -1,5 +1,6 @@
-import { Box, Card, Heading } from '@ui';
+import { Box, Heading } from '@ui';
 
+import { EventCard } from '../EventCard/EventCard';
 import React from 'react';
 import { eventSelectors } from '@state/event';
 import { useSelector } from 'react-redux';
@@ -11,14 +12,9 @@ const FeaturedPanel = () => {
     <Box display="flex" flexDirection="column" minHeight="200px" mt={2}>
       <Heading level="2">Featured</Heading>
       <Box display="flex" flexDirection="row">
-        {Object.values(futureEvents).map(event => {
-          return (
-            <div key={event.id}>
-              {event.title}
-              {event.location}
-            </div>
-          );
-        })}
+        {Object.values(futureEvents).map(event => (
+          <EventCard key={event.id} event={event} />
+        ))}
       </Box>
     </Box>
   );

@@ -9,7 +9,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ body, footer }) => {
   return (
-    <Box display="flex" flexDirection="row">
+    <Box display="flex" flexDirection="column">
       {body}
       {footer}
     </Box>

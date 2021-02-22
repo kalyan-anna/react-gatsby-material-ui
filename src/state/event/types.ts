@@ -3,7 +3,7 @@ export const POPULAR_EVENTS_LOADED = 'event/popularEventsLoaded';
 export const FEATURED_EVENTS_LOADED = 'event/featuredEventsLoaded';
 export const API_ERROR = 'event/apiError';
 
-export interface Event {
+export interface EventDetails {
   title: string;
   img: string;
   location: string;
@@ -19,9 +19,9 @@ export interface EventState {
     apiError: string;
   };
   popular: {
-    [id: string]: Event;
+    [id: string]: EventDetails;
   };
   featured: {
-    [id: string]: Event;
+    [id: string]: EventDetails;
   };
 }
