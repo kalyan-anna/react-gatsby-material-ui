@@ -4,14 +4,14 @@ import React from 'react';
 import { eventSelectors } from '@state/event';
 import { useSelector } from 'react-redux';
 
-const PopularPanel = () => {
-  const popularEvents = useSelector(eventSelectors.filteredPopularEvents);
+const FeaturedPanel = () => {
+  const futureEvents = useSelector(eventSelectors.featuredEvents);
 
   return (
-    <Box display="flex" flexDirection="column" minHeight="200px">
-      <Heading level="2">Popular around you</Heading>
+    <Box display="flex" flexDirection="column" minHeight="200px" mt={2}>
+      <Heading level="2">Featured</Heading>
       <Box display="flex" flexDirection="row">
-        {popularEvents.map(event => {
+        {Object.values(futureEvents).map(event => {
           return (
             <div key={event.id}>
               {event.title}
@@ -24,4 +24,4 @@ const PopularPanel = () => {
   );
 };
 
-export { PopularPanel };
+export { FeaturedPanel };

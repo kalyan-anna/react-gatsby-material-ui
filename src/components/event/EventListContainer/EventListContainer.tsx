@@ -3,6 +3,7 @@ import { eventSelectors, loadEvents } from 'state/event';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Box } from '@ui';
+import { FeaturedPanel } from '../FeaturedPanel/FeaturedPanel';
 import { FlowerSpinner } from 'react-epic-spinners';
 import { PopularPanel } from '../PopularPanel/PopularPanel';
 import { SearchInput } from '../SearchInput/SearchInput';
@@ -35,8 +36,9 @@ const EventListContainer = () => {
   return (
     <Box alignItems="start" flexDirection="column" display="flex" my={4}>
       <SearchInput />
-      <Box mt={4} backgroundColor="panelBackground" width="100%" px={4}>
+      <Box backgroundColor="panelBackground" width="100%" px={4} py={1} mt={4}>
         <PopularPanel />
+        <FeaturedPanel />
       </Box>
     </Box>
   );
