@@ -1,4 +1,4 @@
-import { PriorityEnum, TodoStatusEnum } from '@state/todos';
+import { PriorityEnum, TodoStatusEnum } from 'state/event';
 import {
   clearFilters,
   filterByPriority,

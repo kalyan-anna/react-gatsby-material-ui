@@ -1,6 +1,7 @@
-import { PriorityEnum, TodoStatusEnum } from '@state/todos';
-import { filterSelectors } from './selectors';
 import { FilterState, SortTypeEnum } from './types';
+import { PriorityEnum, TodoStatusEnum } from 'state/event';
+
+import { filterSelectors } from './selectors';
 
 describe('filterSelectors', () => {
   describe('selectFilters', () => {

@@ -1,11 +1,12 @@
 /* eslint-disable max-lines-per-function */
-import { filterReducer, FilterState } from '@state/filter';
-import { addTodoItem } from './actions';
-import { todosReducer } from './reducer';
-import { todosSelectors } from './selectors';
-import { PriorityEnum, Todo, TodosState, TodoStatusEnum } from './types';
-import uniqueId from 'lodash/uniqueId';
+import { FilterState, filterReducer } from '@state/filter';
+import { PriorityEnum, Todo, TodoStatusEnum, TodosState } from './types';
 import { advanceTo, clear } from 'jest-date-mock';
+
+import { addTodoItem } from './actions';
+import { eventReducer } from './reducer';
+import { todosSelectors } from './selectors';
+import uniqueId from 'lodash/uniqueId';
 
 jest.mock('lodash/uniqueId');
 const mockedUniqueId = uniqueId as jest.Mock;
@@ -25,7 +26,7 @@ describe('todosSelectors', () => {
 
   describe('selectAllTodos', () => {
     test('should return empty array when no items added', () => {
-      const nextTodosState = todosReducer(undefined, { type: 'Unknown' });
+      const nextTodosState = eventReducer(undefined, { type: 'Unknown' });
       const nextFilterState = filterReducer(undefined, { type: 'Unknown' });
       const result = todosSelectors.selectAllTodos({
         todos: nextTodosState,

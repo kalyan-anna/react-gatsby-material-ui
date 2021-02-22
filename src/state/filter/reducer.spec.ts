@@ -1,4 +1,5 @@
-import { PriorityEnum, TodoStatusEnum } from '@state/todos';
+import { FilterState, SortTypeEnum } from './types';
+import { PriorityEnum, TodoStatusEnum } from 'state/event';
 import {
   clearFilters,
   filterByPriority,
@@ -6,8 +7,8 @@ import {
   sortByName,
   sortByPriority,
 } from './actions';
+
 import { filterReducer } from './reducer';
-import { FilterState, SortTypeEnum } from './types';
 
 describe('filterReducer', () => {
   test('should return the inital state', () => {

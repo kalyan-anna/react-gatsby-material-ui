@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { todosReducer } from './todos/reducer';
+import { eventReducer } from './event/reducer';
 import { filterReducer } from './filter';
 
 const rootReducer = combineReducers({
-  todos: todosReducer,
+  event: eventReducer,
   filter: filterReducer,
 });
 
