@@ -20,7 +20,7 @@ const SearchInput = () => {
   };
 
   return (
-    <Box alignItems="start" flexDirection="column" display="flex" my={4}>
+    <Box width={[1, 1, 1 / 2, 1 / 4]}>
       <TextInput
         placeholder="Search for events"
         onChange={handleSeachOnChange}

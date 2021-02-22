@@ -32,7 +32,7 @@ const EventListContainer = () => {
   }
 
   return (
-    <Box width={[1, 1, 1 / 2, 1 / 4]}>
+    <Box alignItems="start" flexDirection="column" display="flex" my={4}>
       <SearchInput />
     </Box>
   );
