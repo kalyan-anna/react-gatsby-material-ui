@@ -41,7 +41,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
           px={[3, 4]}
           py={[2, 3]}
           as="main"
-          backgroundColor="primary"
+          backgroundColor="background"
         >
           {children}
         </Box>

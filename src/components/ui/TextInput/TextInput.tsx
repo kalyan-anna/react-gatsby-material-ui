@@ -19,7 +19,7 @@ const TextInputStyled = styled('input')<TextInputProps>(
   {
     '&:focus': {
       outline: 'none',
-      borderColor: `${theme?.colors?.fontSecondary}`,
+      borderColor: `${theme?.colors?.rockBlue}`,
     },
   },
   space,
@@ -34,10 +34,10 @@ const TextInput = (props: InputHTMLAttributes<any>) => {
       type="text"
       {...props}
       p={2}
-      backgroundColor="secondary"
+      backgroundColor="panelBackground"
       width="100%"
-      borderColor="accent"
-      color="font"
+      borderColor="rockBlue"
+      color="primary"
       borderRadius={3}
       border={2}
     />

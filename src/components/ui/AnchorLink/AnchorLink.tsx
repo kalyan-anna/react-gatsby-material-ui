@@ -7,7 +7,7 @@ import { theme } from '@theme';
 type AnchorLinkProps = GatsbyLinkProps<any> &
   SpaceProps &
   ColorProps & {
-    disableDecoration: boolean;
+    disableDecoration?: boolean;
   };
 
 const AnchorLink = styled(Link)<AnchorLinkProps>(
@@ -17,7 +17,7 @@ const AnchorLink = styled(Link)<AnchorLinkProps>(
       textDecoration: 'underline',
     },
     '&:focus': {
-      outline: `2px solid ${theme?.colors?.secondaryFont}`,
+      outline: `2px solid ${theme?.colors?.accent}`,
     },
   },
   space,
@@ -39,7 +39,7 @@ const AnchorLink = styled(Link)<AnchorLinkProps>(
 );
 
 AnchorLink.defaultProps = {
-  color: 'font',
+  color: 'primary',
 };
 
 export { AnchorLink };

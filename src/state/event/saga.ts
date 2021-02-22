@@ -23,7 +23,7 @@ function* loadFeatureEvents() {
 }
 
 function* loadPopularEvents() {
-  yield delay(5000); // just for demo
+  yield delay(3000); // just for demo
 
   try {
     const data = yield call(api.fetchPopularEvents);

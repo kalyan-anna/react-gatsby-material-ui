@@ -14,7 +14,8 @@ const Header: React.FC<HeaderProps> = ({ appTitle }) => {
       display="flex"
       px={[3, 4]}
       py={[2, 3]}
-      boxShadow="elevation2"
+      boxShadow="elevation3"
+      backgroundColor="panelBackground"
     >
       <AppLogoLink appTitle={appTitle} />
     </Box>

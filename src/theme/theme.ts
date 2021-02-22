@@ -1,4 +1,6 @@
-import { Theme } from 'styled-system';
+import { Theme, color } from 'styled-system';
+
+import colors from './colors';
 
 export const theme: Theme = {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
@@ -41,10 +43,12 @@ export const theme: Theme = {
     minHeights: [16, 32, 64, 128, 256, 512, 768, 1024, 1536],
   },
   colors: {
-    font: '#2f516d',
-    fontSecondary: '#899bb2',
-    primary: '#e1e1e1',
-    secondary: '#ffffff',
-    accent: '#444444',
+    ...colors,
+    background: colors.grey,
+    cardBorder: colors.grey,
+    panelBackground: colors.white,
+    primary: colors.blue,
+    secondary: colors.rockBlue,
+    accent: colors.charcoal,
   },
 };

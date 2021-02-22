@@ -32,7 +32,7 @@ const Text = styled.div<TextProps>`
 `;
 
 Text.defaultProps = {
-  color: 'font',
+  color: 'primary',
 };
 
 export { Text, TextProps };
