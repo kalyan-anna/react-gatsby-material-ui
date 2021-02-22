@@ -11,8 +11,8 @@
 Sample project based on styled-components
 
 ## Cloud
-The application is deployed to cloud.  
-https://gatsbystyled.z8.web.core.windows.net/
+The application is deployed to cloud.  (doesn't work coz netlify websites are HTTPS)
+https://naughty-heyrovsky-edb903.netlify.app/
 
 
 ## Instructions to Run
