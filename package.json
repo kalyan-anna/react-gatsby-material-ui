@@ -8,6 +8,7 @@
     "@reduxjs/toolkit": "^1.5.0",
     "@types/lodash.debounce": "^4.0.6",
     "@types/lodash.keyby": "^4.6.6",
+    "axios": "^0.21.1",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",
@@ -30,6 +31,7 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/jest": "^26.0.16",
     "@types/lodash.snakecase": "^4.1.6",
     "@types/node": "^14.14.10",
@@ -42,6 +44,7 @@
     "@types/webpack-env": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-import-resolver-typescript": "^2.3.0",

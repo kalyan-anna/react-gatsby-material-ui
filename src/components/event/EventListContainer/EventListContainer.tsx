@@ -1,12 +1,22 @@
 import { Box, TextInput } from '@ui';
-import React, { ChangeEvent, useCallback } from 'react';
+import React, { ChangeEvent, useCallback, useEffect } from 'react';
+import { eventSelectors, loadEvents } from 'state/event';
+import { useDispatch, useSelector } from 'react-redux';
 
 import debounce from 'lodash.debounce';
 import { filterByKeyword } from '@state/filter';
-import { useDispatch } from 'react-redux';
 
 const EventListContainer = () => {
   const dispatch = useDispatch();
+  const isAlreadyLoaded = useSelector(eventSelectors.isAlreadyLoaded);
+  const isLoading = useSelector(eventSelectors.isLoading);
+
+  useEffect(() => {
+    if (isAlreadyLoaded) {
+      return;
+    }
+    dispatch(loadEvents());
+  }, [isAlreadyLoaded]);
 
   const debouncedDispatch = useCallback(
     debounce((value: string) => {
@@ -18,6 +28,10 @@ const EventListContainer = () => {
   const handleSeachOnChange = (event: ChangeEvent<any>) => {
     debouncedDispatch(event.target.value);
   };
+
+  if (isLoading) {
+    return <div>Spinning....</div>;
+  }
 
   return (
     <Box alignItems="start" flexDirection="column" display="flex" my={4}>
