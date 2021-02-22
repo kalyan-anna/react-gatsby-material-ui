@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@ui';
 import { FlowerSpinner } from 'react-epic-spinners';
 import { SearchInput } from '../SearchInput/SearchInput';
+import { theme } from '@theme';
 
 const EventListContainer = () => {
   const dispatch = useDispatch();
@@ -20,11 +21,13 @@ const EventListContainer = () => {
 
   if (isLoading) {
     return (
-      <FlowerSpinner
-        size={250}
-        animationDuration={2000}
-        color="fontSecondary"
-      />
+      <Box display="flex" justifyContent="center" mt={5}>
+        <FlowerSpinner
+          size={250}
+          animationDuration={2000}
+          color={theme?.colors?.secondary}
+        />
+      </Box>
     );
   }
 

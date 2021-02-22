@@ -7,7 +7,7 @@ interface HeadingProps {
 
 const Heading: React.FC<HeadingProps> = ({ level = 1, ...rest }) => {
   const Tag = `h${level}`;
-  return <Text {...rest} as={Tag} />;
+  return <Text {...rest} as={Tag} fontWeight={6} />;
 };
 
 export { Heading };
