@@ -19,6 +19,7 @@
     "install": "^0.13.0",
     "lodash.debounce": "^4.0.8",
     "lodash.keyby": "^4.6.0",
+    "lodash.shuffle": "^4.2.0",
     "lodash.snakecase": "^4.1.1",
     "npm": "^7.5.4",
     "prop-types": "^15.7.2",
@@ -36,6 +37,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jest": "^26.0.16",
+    "@types/lodash.shuffle": "^4.2.6",
     "@types/lodash.snakecase": "^4.1.6",
     "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",

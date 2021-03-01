@@ -1,10 +1,8 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import { eventReducer } from './event/reducer';
-import { filterReducer } from './filter';
+import {snapReducer} from './snap';
 
 const rootReducer = combineReducers({
-  event: eventReducer,
-  filter: filterReducer,
+  snap: snapReducer,
 });
 
 export default rootReducer;
