@@ -5,43 +5,46 @@
   </div>
 </p>
 <h1 align="center">
-  Sample Gatsby / Styled-Component
+  Sample Gatsby / Material UI
 </h1>
 
-Sample project based on styled-components
+Sample project based on Material UI
 
 ## Cloud
-The application is deployed to cloud.  (doesn't work coz netlify websites are HTTPS).  
-https://naughty-heyrovsky-edb903.netlify.app/
 
+The application is deployed to cloud. (doesn't work coz netlify websites are HTTPS).  
+https://admiring-panini-56fa63.netlify.app/
 
 ## Instructions to Run
 
-npm run install  
+npm run install
 
 npm run develop  
 access the application from  
 http://localhost:8000/
 
-OR 
+OR
 
 npm run build  
 npm run serve
 access the application from  
 http://localhost:9000/
 
-## Test  
+## Test
+
 npm run test
 
 ## Lint
-npm run lint  
+
+npm run lint
 
 ## TODO
+
 Cypress E2E  
 StoryBook  
 UI Improvements  
 Accessibility  
-More UI Unit tests 
+More UI Unit tests
 CI/CD  
 Performance Bundle Analyzer  
-Lazy loading components  
+Lazy loading components
