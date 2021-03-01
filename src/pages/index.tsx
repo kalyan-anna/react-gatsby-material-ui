@@ -1,5 +1,4 @@
 import { DefaultLayout } from 'layouts';
-import { EventListContainer } from '@event';
 import React from 'react';
 
 const IndexPage = () => (
