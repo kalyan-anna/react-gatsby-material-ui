@@ -1,12 +1,24 @@
-import '../../theme/fonts.css';
-
-import { Box, Footer, Header } from '@ui';
-import { GlobalStyle, theme } from '@theme';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
+import { Footer } from 'components/ui/Footer/Footer';
+import { Header } from 'components/ui/Header/Header';
 import React from 'react';
 import { SEO } from '../SEO/SEO';
-import { ThemeProvider } from 'styled-components';
+
+const useStyles = makeStyles({
+  '@global': {
+    'html, body, #___gatsby': {
+      height: '100%',
+    },
+    body: {
+      margin: 0,
+    },
+    "div[role='group'][tabindex], #gatsby-focus-wrapper": {
+      height: '100%',
+    },
+  },
+});
 
 type DefaultLayoutProps = {
   pageTitle: string;
@@ -16,6 +28,8 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   pageTitle,
   children,
 }) => {
+  useStyles();
+
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -31,22 +45,20 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   const appTitle: string = site.siteMetadata?.title;
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <SEO pageTitle={pageTitle} appTitle={appTitle} />
-      <GlobalStyle />
-      <Box display="flex" flexDirection="column" minHeight="100vh">
+      <Grid
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="stretch"
+      >
         <Header appTitle={appTitle} />
-        <Box
-          flexGrow={2}
-          px={[3, 4]}
-          py={[2, 3]}
-          as="main"
-          backgroundColor="background"
-        >
+        <Grid item component="main">
           {children}
-        </Box>
+        </Grid>
         <Footer />
-      </Box>
-    </ThemeProvider>
+      </Grid>
+    </>
   );
 };
