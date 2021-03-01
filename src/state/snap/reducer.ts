@@ -1,8 +1,14 @@
-import { Card, PACK_OF_CARDS, Player, SnapGameState } from './types';
+import { Card, CardFace, PACK_OF_CARDS, Player, SnapGameState } from './types';
+import {
+  computerCallsSnap as computerCallsSnapAction,
+  computerTurnsCard as computerTurnsCardAction,
+  humanCallsSnap as humanCallsSnapAction,
+  humanTurnsCard as humanTurnsCardAction,
+  startNewGame as startNewGameAction,
+} from './actions';
 
 import { createReducer } from '@reduxjs/toolkit';
 import shuffle from 'lodash.shuffle';
-import { startNewGame as startNewGameAction } from './actions';
 
 export const initialState: SnapGameState = {
   winner: null,
@@ -13,18 +19,16 @@ export const initialState: SnapGameState = {
     cards: PACK_OF_CARDS,
     matching: false,
   },
-  players: {
-    [Player.COMPUTER]: {
-      cards: [],
-    },
-    [Player.HUMAN]: {
-      cards: [],
-    },
+  computer: {
+    cards: [],
+  },
+
+  human: {
+    cards: [],
   },
 };
 
 function selectRandomPlayer(): Player {
-  console.log('radon:', Math.round(Math.random()));
   return Math.round(Math.random()) ? Player.COMPUTER : Player.HUMAN;
 }
 
@@ -32,7 +36,7 @@ function shuffleAndDeal(
   pack: Card[],
 ): { player1Cards: Card[]; player2Cards: Card[] } {
   const shuffledPack: Card[] = shuffle(pack);
-  
+
   return shuffledPack.reduce(
     (accumulator: any, item: Card, index: number) => {
       index % 2
@@ -55,13 +59,79 @@ function startNewGame(state: SnapGameState) {
     cards: [],
   };
   const { player1Cards, player2Cards } = shuffleAndDeal(PACK_OF_CARDS);
-  state.players[Player.COMPUTER].cards = player1Cards;
-  state.players[Player.HUMAN].cards = player2Cards;
-};
+  state.computer.cards = player1Cards;
+  state.human.cards = player2Cards;
+}
+
+function isMatching(cards: Card[]) {
+  if (cards.length < 2) {
+    return false;
+  }
+  const lastCard = cards[cards.length - 1];
+  const lastPrevCard = cards[cards.length - 2];
+  if (lastCard.rank === lastPrevCard.rank) {
+    return true;
+  }
+  return false;
+}
+
+function humanTurnsCard(state: SnapGameState) {
+  state.whoseTurn = Player.COMPUTER;
+  state.whoSnapped = null;
+
+  const playingCard = state.human.cards.pop() as Card;
+  playingCard.face = CardFace.FACE_UP;
+
+  state.centerPile.cards.push(playingCard);
+  state.centerPile.matching = isMatching(state.centerPile.cards);
+
+  if (state.human.cards.length === 0) {
+    state.isPlaying = false;
+    state.winner = Player.COMPUTER;
+    state.whoseTurn = null;
+  }
+}
+
+function humanCallsSnap(state: SnapGameState) {
+  state.human.cards = [...state.centerPile.cards, ...state.human.cards];
+  state.centerPile.cards = [];
+  state.centerPile.matching = false;
+  state.whoseTurn = Player.HUMAN;
+  state.whoSnapped = Player.HUMAN;
+}
+
+function computerTurnsCard(state: SnapGameState) {
+  state.whoseTurn = Player.HUMAN;
+  state.whoSnapped = null;
+
+  const playingCard = state.computer.cards.pop() as Card;
+  playingCard.face = CardFace.FACE_UP;
+
+  state.centerPile.cards.push(playingCard);
+  state.centerPile.matching = isMatching(state.centerPile.cards);
+
+  if (state.computer.cards.length === 0) {
+    state.isPlaying = false;
+    state.winner = Player.HUMAN;
+    state.whoseTurn = null;
+  }
+}
+
+function computerCallsSnap(state: SnapGameState) {
+  state.computer.cards = [...state.centerPile.cards, ...state.computer.cards];
+  state.centerPile.cards = [];
+  state.centerPile.matching = false;
+  state.whoseTurn = Player.COMPUTER;
+  state.whoSnapped = Player.COMPUTER;
+}
 
 export const snapReducer = createReducer<SnapGameState>(
   initialState,
   builder => {
     builder.addCase(startNewGameAction, startNewGame);
+    builder.addCase(humanTurnsCardAction, humanTurnsCard);
+    builder.addCase(humanCallsSnapAction, humanCallsSnap);
+    builder.addCase(computerTurnsCardAction, computerTurnsCard);
+    builder.addCase(computerCallsSnapAction, computerCallsSnap);
   },
 );

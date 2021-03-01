@@ -1,4 +1,3 @@
-import { Player } from './types';
 import { RootState } from '../store';
 import { createSelector } from '@reduxjs/toolkit';
 
@@ -19,10 +18,7 @@ const isPlaying = createSelector(
   ({ isPlaying }) => isPlaying,
 );
 
-const winner = createSelector(
-    selectSnapGameState,
-    ({winner}) => winner
-)
+const winner = createSelector(selectSnapGameState, ({ winner }) => winner);
 
 const centerPileCards = createSelector(
   selectSnapGameState,
@@ -30,23 +26,19 @@ const centerPileCards = createSelector(
 );
 
 const isMatching = createSelector(
-    selectSnapGameState,
-    ({centerPile}) => centerPile.matching
-)
-
-const selectComputer = createSelector(
-    selectSnapGameState,
-    ({players}) => players[Player.COMPUTER]
-)
-
-const computerCards = createSelector(selectComputer, ({cards}) => cards);
-
-const selectHuman = createSelector(
   selectSnapGameState,
-  ({ players }) => players[Player.HUMAN],
+  ({ centerPile }) => centerPile.matching,
 );
 
-const humanCards = createSelector(selectHuman, ({ cards }) => cards);
+const computerCards = createSelector(
+  selectSnapGameState,
+  ({ computer }) => computer.cards,
+);
+
+const humanCards = createSelector(
+  selectSnapGameState,
+  ({ human }) => human.cards,
+);
 
 export const snapSelector = {
   whoseTurn,

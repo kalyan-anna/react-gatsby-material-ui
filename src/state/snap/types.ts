@@ -33,10 +33,11 @@ export interface SnapGameState {
     cards: Card[];
     matching: boolean;
   };
-  players: {
-    [key in Player]: {
-      cards: Card[]
-    }    
+  computer: {
+    cards: Card[];
+  };
+  human: {
+    cards: Card[];
   };
 }
 
