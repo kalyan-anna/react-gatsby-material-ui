@@ -2,7 +2,7 @@
 
 const cgf = {
   siteMetadata: {
-    title: `Snapii`,
+    title: `Snap-it`,
     description: `Sample gatsby material ui project`,
     author: `Kalyan Annamalai`,
   },

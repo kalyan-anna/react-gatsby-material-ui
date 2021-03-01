@@ -1,7 +1,8 @@
-import { Container, Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Footer } from 'components/ui/Footer/Footer';
+import { GridContainer } from '@ui';
 import { Header } from 'components/ui/Header/Header';
 import React from 'react';
 import { SEO } from '../SEO/SEO';
@@ -47,18 +48,13 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   return (
     <>
       <SEO pageTitle={pageTitle} appTitle={appTitle} />
-      <Grid
-        container
-        direction="column"
-        justify="flex-start"
-        alignItems="stretch"
-      >
+      <GridContainer>
         <Header appTitle={appTitle} />
-        <Grid item component="main">
+        <Grid item component="main" style={{ flexGrow: 2 }}>
           {children}
         </Grid>
         <Footer />
-      </Grid>
+      </GridContainer>
     </>
   );
 };
