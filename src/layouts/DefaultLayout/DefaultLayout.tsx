@@ -50,7 +50,12 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
       <SEO pageTitle={pageTitle} appTitle={appTitle} />
       <GridContainer>
         <Header appTitle={appTitle} />
-        <Grid item component="main" style={{ flexGrow: 2 }}>
+        <Grid
+          item
+          component="main"
+          style={{ flexGrow: 2, justifyContent: 'center' }}
+          container={true}
+        >
           {children}
         </Grid>
         <Footer />

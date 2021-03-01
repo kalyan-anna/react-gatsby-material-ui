@@ -2,11 +2,12 @@ import { Box, Container, Typography } from '@material-ui/core';
 
 import { DefaultLayout } from 'layouts';
 import React from 'react';
+import { grey } from '@material-ui/core/colors';
 
 const About = () => {
   return (
     <DefaultLayout pageTitle="About">
-      <Container maxWidth="md">
+      <Container maxWidth="md" style={{ color: grey[100] }}>
         <Box my={3}>
           <Typography variant="h3" component="h1">
             About

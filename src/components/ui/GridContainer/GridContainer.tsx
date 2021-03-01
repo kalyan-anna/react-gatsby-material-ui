@@ -1,9 +1,9 @@
 import { Grid, styled } from '@material-ui/core';
-import { compose, palette, sizing } from '@material-ui/system';
+import { compose, palette, sizing, spacing } from '@material-ui/system';
 
 import { brown } from '@material-ui/core/colors';
 
-const GridContainer = styled(Grid)(compose(sizing, palette));
+const GridContainer = styled(Grid)(compose(sizing, palette, spacing));
 
 GridContainer.defaultProps = {
   container: true,
