@@ -1,18 +1,26 @@
+import { Box, Container, Typography } from '@material-ui/core';
+
 import { DefaultLayout } from 'layouts';
 import React from 'react';
 
 const About = () => {
   return (
     <DefaultLayout pageTitle="About">
-      <h1>About</h1>
-      <div>Sample react / material-ui project</div>
-      <ul>
-        <li>Gatsby</li>
-        <li>React</li>
-        <li>Typescript</li>
-        <li>material ui</li>
-        <li>Redux toolkit</li>
-      </ul>
+      <Container maxWidth="md">
+        <Box my={3}>
+          <Typography variant="h3" component="h1">
+            About
+          </Typography>
+          <div>Sample react / material-ui project</div>
+          <ul>
+            <li>Gatsby</li>
+            <li>React</li>
+            <li>Typescript</li>
+            <li>material ui</li>
+            <li>Redux toolkit</li>
+          </ul>
+        </Box>
+      </Container>
     </DefaultLayout>
   );
 };
