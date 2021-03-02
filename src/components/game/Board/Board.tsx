@@ -74,7 +74,7 @@ export const Board = () => {
         <Grid item style={{ flexGrow: 2 }}>
           <Grid
             container
-            alignContent="center"
+            alignContent="flex-start"
             direction="row"
             justify="space-around"
             alignItems="stretch"

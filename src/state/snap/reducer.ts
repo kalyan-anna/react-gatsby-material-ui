@@ -7,6 +7,7 @@ import {
   startNewGame as startNewGameAction,
 } from './actions';
 
+import clonedeep from 'lodash.clonedeep';
 import { createReducer } from '@reduxjs/toolkit';
 import shuffle from 'lodash.shuffle';
 
@@ -16,7 +17,7 @@ export const initialState: SnapGameState = {
   whoSnapped: null,
   isPlaying: false,
   centerPile: {
-    cards: PACK_OF_CARDS,
+    cards: [...PACK_OF_CARDS],
     matching: false,
   },
   computer: {
@@ -50,17 +51,16 @@ function shuffleAndDeal(
 }
 
 function startNewGame(state: SnapGameState) {
-  Object.assign(state, { ...initialState });
+  Object.assign(state, clonedeep({ ...initialState }));
 
   state.whoseTurn = selectRandomPlayer();
   state.isPlaying = true;
-  state.centerPile = {
-    ...state.centerPile,
-    cards: [],
-  };
-  const { player1Cards, player2Cards } = shuffleAndDeal(PACK_OF_CARDS);
-  state.computer.cards = player1Cards;
-  state.human.cards = player2Cards;
+  state.centerPile.cards = [];
+
+  const { player1Cards, player2Cards } = shuffleAndDeal([...PACK_OF_CARDS]);
+  state.computer.cards = [...player1Cards];
+  state.human.cards = [...player2Cards];
+  return state;
 }
 
 function isMatching(cards: Card[]) {
@@ -93,7 +93,13 @@ function humanTurnsCard(state: SnapGameState) {
 }
 
 function humanCallsSnap(state: SnapGameState) {
-  state.human.cards = [...state.centerPile.cards, ...state.human.cards];
+  const centerPileCards = state.centerPile.cards.map(c => ({
+    ...c,
+    face: CardFace.FACE_DOWN,
+  }));
+
+  state.human.cards = [...centerPileCards, ...state.human.cards];
+
   state.centerPile.cards = [];
   state.centerPile.matching = false;
   state.whoseTurn = Player.HUMAN;
@@ -118,7 +124,12 @@ function computerTurnsCard(state: SnapGameState) {
 }
 
 function computerCallsSnap(state: SnapGameState) {
-  state.computer.cards = [...state.centerPile.cards, ...state.computer.cards];
+  const centerPileCards = state.centerPile.cards.map(c => ({
+    ...c,
+    face: CardFace.FACE_DOWN,
+  }));
+
+  state.computer.cards = [...centerPileCards, ...state.computer.cards];
   state.centerPile.cards = [];
   state.centerPile.matching = false;
   state.whoseTurn = Player.COMPUTER;

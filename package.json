@@ -19,6 +19,7 @@
     "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-sharp": "^2.6.0",
     "install": "^0.13.0",
+    "lodash.clonedeep": "^4.5.0",
     "lodash.shuffle": "^4.2.0",
     "npm": "^7.6.0",
     "prop-types": "^15.7.2",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "@types/classnames": "^2.2.11",
     "@types/jest": "^26.0.16",
+    "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.shuffle": "^4.2.6",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
