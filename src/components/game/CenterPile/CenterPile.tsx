@@ -1,28 +1,12 @@
-import { Card, CardFace, CardSuit, PACK_OF_CARDS } from '@state/snap';
-import { Grid, makeStyles } from '@material-ui/core';
+import { CardFace, PACK_OF_CARDS } from '@state/snap';
 
+import { Grid } from '@material-ui/core';
 import { PlayingCard } from 'components/ui/PlayingCard/PlayingCard';
 import React from 'react';
 import { StyledPile } from '@ui';
 
 export const CenterPile = () => {
-  const allCards = [
-    {
-      id: 'c12',
-      suit: CardSuit.CLUB,
-      rank: 'Q',
-      face: CardFace.FACE_DOWN,
-    } as Card,
-    {
-      id: 'c13',
-      suit: CardSuit.CLUB,
-      rank: 'K',
-      face: CardFace.FACE_DOWN,
-    } as Card,
-  ].map(card => ({
-    ...card,
-    face: CardFace.FACE_UP,
-  }));
+  const allCards = PACK_OF_CARDS;
 
   return (
     <Grid container spacing={2} justify="center" alignItems="center">
@@ -33,7 +17,7 @@ export const CenterPile = () => {
         <StyledPile>
           {allCards.map((card, index) => {
             let position = index;
-            if (allCards.length > 1) {
+            if (allCards.length > 1 && card.face === CardFace.FACE_UP) {
               if (index === allCards.length - 1) {
                 position += 50;
               } else if (index === allCards.length - 1) {

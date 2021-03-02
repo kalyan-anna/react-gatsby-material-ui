@@ -1,4 +1,5 @@
 import { Grid, makeStyles, styled } from '@material-ui/core';
+import React, { useState } from 'react';
 import { blue, green } from '@material-ui/core/colors';
 import {
   borders,
@@ -13,7 +14,8 @@ import { CenterPile } from '../CenterPile/CenterPile';
 import { ComputerPile } from '../ComputerPile/ComputerPile';
 import { HumanPile } from '../HumanPile/HumanPile';
 import { PrimaryButton } from '@ui';
-import React from 'react';
+import { RulesModal } from '../RulesModal/RulesModal';
+import { SetingsModal } from '../SettingsModal/SetingsModal';
 
 const BoardContainer = styled(Grid)(
   compose(sizing, borders, spacing, palette, shadows),
@@ -42,52 +44,66 @@ const useStyles = makeStyles(() => ({
 
 export const Board = () => {
   const classes = useStyles();
+  const [openSettingModal, setOpenSettingModal] = useState(false);
+  const [openRulesModal, setOpenRulesModal] = useState(false);
 
   return (
-    <BoardContainer
-      container
-      direction="column"
-      justify="flex-start"
-      alignItems="stretch"
-      spacing={1}
-    >
-      <Grid item style={{ flexGrow: 2 }}>
-        <Grid
-          container
-          alignContent="center"
-          direction="row"
-          justify="space-around"
-          alignItems="stretch"
-          spacing={1}
-          className={classes.fullHeight}
-        >
-          <Grid item xs={12} md={4} className={classes.center}>
-            <ComputerPile />
-          </Grid>
-          <Grid item xs={12} md={4} className={classes.center}>
-            <CenterPile />
-          </Grid>
-          <Grid item xs={12} md={4} className={classes.center}>
-            <HumanPile />
+    <>
+      <BoardContainer
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="stretch"
+        spacing={1}
+      >
+        <Grid item style={{ flexGrow: 2 }}>
+          <Grid
+            container
+            alignContent="center"
+            direction="row"
+            justify="space-around"
+            alignItems="stretch"
+            spacing={1}
+            className={classes.fullHeight}
+          >
+            <Grid item xs={12} md={4} className={classes.center}>
+              <ComputerPile />
+            </Grid>
+            <Grid item xs={12} md={4} className={classes.center}>
+              <CenterPile />
+            </Grid>
+            <Grid item xs={12} md={4} className={classes.center}>
+              <HumanPile />
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
 
-      <Grid item>
-        <Grid container direction="row" justify="center" spacing={3}>
-          <Grid item xs={12} sm={4} className={classes.center}>
-            <PrimaryButton size="medium" mx="auto">
-              New Game
-            </PrimaryButton>
-          </Grid>
-          <Grid item xs={12} sm={4} className={classes.center}>
-            <PrimaryButton size="medium">Setting</PrimaryButton>
-          </Grid>
-          <Grid item xs={12} sm={4} className={classes.center}>
-            <PrimaryButton size="medium">Rules</PrimaryButton>
+        <Grid item>
+          <Grid container direction="row" justify="center" spacing={3}>
+            <Grid item xs={12} sm={4} className={classes.center}>
+              <PrimaryButton size="medium">New Game</PrimaryButton>
+            </Grid>
+            <Grid item xs={12} sm={4} className={classes.center}>
+              <PrimaryButton
+                size="medium"
+                onClick={() => setOpenSettingModal(true)}
+              >
+                Settings
+              </PrimaryButton>
+            </Grid>
+            <Grid item xs={12} sm={4} className={classes.center}>
+              <PrimaryButton
+                size="medium"
+                onClick={() => setOpenRulesModal(true)}
+              >
+                Rules
+              </PrimaryButton>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </BoardContainer>
+      </BoardContainer>
+      <SetingsModal open={openSettingModal} setOpen={setOpenSettingModal} />
+      <RulesModal open={openRulesModal} setOpen={setOpenRulesModal} />
+    </>
   );
 };
