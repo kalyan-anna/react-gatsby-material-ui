@@ -4,3 +4,7 @@ export * from './Avatar/Avatar';
 export * from './SnapBubble/SnapBubble';
 export * from './WinnerBubble/WinnerBubble';
 export * from './PlayerTurn/PlayerTurn';
+export * from './ClubImg/ClubImg';
+export * from './DiamondImg/DiamondImg';
+export * from './SpadeImg/SpadeImg';
+export * from './HeartImg/HeartImg';

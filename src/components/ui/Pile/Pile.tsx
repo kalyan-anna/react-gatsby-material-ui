@@ -1,6 +1,7 @@
 import { Box, Theme, withStyles } from '@material-ui/core';
 
 import { Card } from '@state/snap';
+import { PlayingCard } from '../PlayingCard/PlayingCard';
 import React from 'react';
 import { grey } from '@material-ui/core/colors';
 
@@ -28,8 +29,20 @@ export const StyledPile = withStyles((theme: Theme) => ({
 
 interface PileProps {
   cards: Card[];
+  type?: 'human' | 'computer';
 }
 
-export const Pile: React.FC<PileProps> = ({ cards }) => {
-  return <StyledPile></StyledPile>;
+export const Pile: React.FC<PileProps> = ({ cards, type = 'computer' }) => {
+  return (
+    <StyledPile>
+      {cards.map((card, index) => (
+        <PlayingCard
+          card={card}
+          key={card.id}
+          position={index}
+          active={type === 'human' && index === cards.length - 1 ? true : false}
+        />
+      ))}
+    </StyledPile>
+  );
 };

@@ -76,15 +76,15 @@ export const Board = () => {
       <Grid item>
         <Grid container direction="row" justify="center" spacing={3}>
           <Grid item xs={12} sm={4} className={classes.center}>
-            <PrimaryButton size="large" mx="auto">
+            <PrimaryButton size="medium" mx="auto">
               New Game
             </PrimaryButton>
           </Grid>
           <Grid item xs={12} sm={4} className={classes.center}>
-            <PrimaryButton size="large">Setting</PrimaryButton>
+            <PrimaryButton size="medium">Setting</PrimaryButton>
           </Grid>
           <Grid item xs={12} sm={4} className={classes.center}>
-            <PrimaryButton size="large">Rules</PrimaryButton>
+            <PrimaryButton size="medium">Rules</PrimaryButton>
           </Grid>
         </Grid>
       </Grid>

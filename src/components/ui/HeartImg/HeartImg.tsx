@@ -3,32 +3,25 @@ import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 
-export const Logo = () => {
+export const HeartImg = () => {
   const data = useStaticQuery(graphql`
     query {
-      mobileImage: file(relativePath: { eq: "logo.png" }) {
+      mobileImage: file(relativePath: { eq: "heart.png" }) {
         childImageSharp {
-          fixed(width: 75, height: 75) {
+          fixed(width: 15, height: 15) {
             ...GatsbyImageSharpFixed
           }
         }
       }
-      desktopImage: file(relativePath: { eq: "logo.png" }) {
+      desktopImage: file(relativePath: { eq: "heart.png" }) {
         childImageSharp {
-          fixed(width: 100, height: 100) {
+          fixed(width: 30, height: 30) {
             ...GatsbyImageSharpFixed
           }
         }
       }
     }
   `);
-
-  if (
-    !data?.mobileImage?.childImageSharp?.fixed ||
-    !data?.desktopImage?.childImageSharp?.fixed
-  ) {
-    return <div>Picture not found</div>;
-  }
 
   const sources = [
     data.mobileImage.childImageSharp.fixed,
@@ -38,5 +31,5 @@ export const Logo = () => {
     },
   ];
 
-  return <Img fixed={sources} alt="Snap logo" />;
+  return <Img fixed={sources} alt="Heart image" />;
 };

@@ -3,11 +3,11 @@ import { Box, makeStyles, withStyles } from '@material-ui/core';
 import { Link } from 'gatsby';
 import { Logo } from '../Logo/Logo';
 import React from 'react';
-import { grey } from '@material-ui/core/colors';
+import { blue } from '@material-ui/core/colors';
 
 const AppTitle = withStyles({
   root: {
-    color: '#FFFFFF',
+    color: blue[500],
     textShadow:
       '0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 20px #ff8000, 0 -18px 40px #F00',
     textTransform: 'uppercase',
@@ -40,7 +40,7 @@ export const AppLogoLink: React.FC<AppLogoLinkProps> = ({ appTitle }) => {
         <AppTitle
           mx={[2, 3]}
           fontSize={[20, 28]}
-          fontWeight={600}
+          fontWeight={700}
           letterSpacing={5}
           fontStyle="oblique"
         >
@@ -51,7 +51,7 @@ export const AppLogoLink: React.FC<AppLogoLinkProps> = ({ appTitle }) => {
           fontSize={[10, 14]}
           fontWeight={600}
           fontStyle="oblique"
-          color={grey[300]}
+          color={blue[300]}
           letterSpacing={3}
         >
           Real deal...
