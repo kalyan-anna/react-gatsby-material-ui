@@ -1,4 +1,4 @@
-import { Grid, makeStyles, withStyles } from '@material-ui/core';
+import { Grid, withStyles } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Footer } from 'components/ui/Footer/Footer';
@@ -6,20 +6,7 @@ import { Header } from 'components/ui/Header/Header';
 import React from 'react';
 import { SEO } from '../SEO/SEO';
 import { brown } from '@material-ui/core/colors';
-
-const useStyles = makeStyles({
-  '@global': {
-    'html, body, #___gatsby': {
-      height: '100%',
-    },
-    body: {
-      margin: 0,
-    },
-    "div[role='group'][tabindex], #gatsby-focus-wrapper": {
-      height: '100%',
-    },
-  },
-});
+import { globalStyles } from '../../theme/global';
 
 const AppContainer = withStyles({
   root: {
@@ -36,7 +23,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   pageTitle,
   children,
 }) => {
-  useStyles();
+  globalStyles();
 
   const { site } = useStaticQuery(
     graphql`
