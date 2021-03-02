@@ -8,14 +8,14 @@ export const ClubImg = () => {
     query {
       mobileImage: file(relativePath: { eq: "club.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 19, height: 21) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       desktopImage: file(relativePath: { eq: "club.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 33, height: 40) {
             ...GatsbyImageSharpFixed
           }
         }

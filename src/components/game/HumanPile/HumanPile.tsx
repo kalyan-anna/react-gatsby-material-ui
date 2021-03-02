@@ -11,7 +11,7 @@ export const HumanPile = () => {
         <Avatar type="human" name="You" />
       </Grid>
       <Grid item xs={6} md={12}>
-        <Pile cards={PACK_OF_CARDS} type="human" />
+        <Pile cards={PACK_OF_CARDS} activateLastCard={true} />
       </Grid>
       <Grid item xs={3} md={12}>
         <SnapBubble />

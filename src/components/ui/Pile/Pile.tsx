@@ -29,10 +29,13 @@ export const StyledPile = withStyles((theme: Theme) => ({
 
 interface PileProps {
   cards: Card[];
-  type?: 'human' | 'computer';
+  activateLastCard?: boolean;
 }
 
-export const Pile: React.FC<PileProps> = ({ cards, type = 'computer' }) => {
+export const Pile: React.FC<PileProps> = ({
+  cards,
+  activateLastCard = false,
+}) => {
   return (
     <StyledPile>
       {cards.map((card, index) => (
@@ -40,7 +43,7 @@ export const Pile: React.FC<PileProps> = ({ cards, type = 'computer' }) => {
           card={card}
           key={card.id}
           position={index}
-          active={type === 'human' && index === cards.length - 1 ? true : false}
+          active={activateLastCard && index === cards.length - 1 ? true : false}
         />
       ))}
     </StyledPile>

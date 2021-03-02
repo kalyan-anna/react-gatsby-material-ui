@@ -1,4 +1,5 @@
 import { Grid, makeStyles, styled } from '@material-ui/core';
+import { blue, green } from '@material-ui/core/colors';
 import {
   borders,
   compose,
@@ -7,7 +8,6 @@ import {
   sizing,
   spacing,
 } from '@material-ui/system';
-import { green, grey } from '@material-ui/core/colors';
 
 import { CenterPile } from '../CenterPile/CenterPile';
 import { ComputerPile } from '../ComputerPile/ComputerPile';
@@ -19,14 +19,14 @@ const BoardContainer = styled(Grid)(
   compose(sizing, borders, spacing, palette, shadows),
 );
 BoardContainer.defaultProps = {
-  width: ['95%', '85%', '85%', '60%'],
+  maxWidth: ['95%', '85%', '85%', '60%'],
   minHeight: ['300px', '500px'],
   maxHeight: ['800px'],
   bgcolor: green[500],
   my: 6,
   boxShadow: 5,
   borderRadius: 15,
-  borderColor: grey[200],
+  borderColor: blue[200],
   border: 2,
   p: 2,
 };

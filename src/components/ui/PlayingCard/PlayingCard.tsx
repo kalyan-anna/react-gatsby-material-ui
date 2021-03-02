@@ -2,12 +2,14 @@ import { Box, Grid, Theme, makeStyles } from '@material-ui/core';
 import { Card, CardFace, CardSuit } from '@state/snap';
 import { blue, grey, red } from '@material-ui/core/colors';
 
+import { ClubImg } from '../ClubImg/ClubImg';
+import { DiamondImg } from '../DiamondImg/DiamondImg';
 import { HeartImg } from '../HeartImg/HeartImg';
 import React from 'react';
+import { SpadeImg } from '../SpadeImg/SpadeImg';
 import classNames from 'classnames';
 
 interface PlayingCardProps {
-  left?: number;
   card: Card;
   position?: number;
   active: boolean;
@@ -77,8 +79,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       padding: '3px',
     },
     color: (props: PlayingCardProps) =>
-      props?.card?.suit === CardSuit.DIAMOND ||
-      props?.card?.suit === CardSuit.HEART
+      props.card.suit === CardSuit.DIAMOND || props.card.suit === CardSuit.HEART
         ? red[900]
         : grey[900],
   },
@@ -91,6 +92,19 @@ const FaceUpPlayingCard: React.FC<PlayingCardProps> = (
   props: PlayingCardProps,
 ) => {
   const classes = useStyles(props);
+
+  const suitImage = () => {
+    switch (props.card.suit) {
+      case CardSuit.CLUB:
+        return <ClubImg />;
+      case CardSuit.HEART:
+        return <HeartImg />;
+      case CardSuit.SPADE:
+        return <SpadeImg />;
+      case CardSuit.DIAMOND:
+        return <DiamondImg />;
+    }
+  };
 
   return (
     <Grid
@@ -106,7 +120,7 @@ const FaceUpPlayingCard: React.FC<PlayingCardProps> = (
         justify="flex-start"
         alignItems="flex-start"
       >
-        <HeartImg />
+        {suitImage()}
         <div className={classes.rank}>{props.card.rank}</div>
       </Grid>
       <Grid
@@ -116,7 +130,7 @@ const FaceUpPlayingCard: React.FC<PlayingCardProps> = (
         alignItems="flex-end"
       >
         <div className={classes.rotate}>
-          <HeartImg />
+          {suitImage()}
           <div className={classes.rank}>{props.card.rank}</div>
         </div>
       </Grid>
