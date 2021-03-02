@@ -16,6 +16,8 @@ import { HumanPile } from '../HumanPile/HumanPile';
 import { PrimaryButton } from '@ui';
 import { RulesModal } from '../RulesModal/RulesModal';
 import { SetingsModal } from '../SettingsModal/SetingsModal';
+import { startNewGame } from '@state/snap';
+import { useDispatch } from 'react-redux';
 
 const BoardContainer = styled(Grid)(
   compose(sizing, borders, spacing, palette, shadows),
@@ -46,6 +48,19 @@ export const Board = () => {
   const classes = useStyles();
   const [openSettingModal, setOpenSettingModal] = useState(false);
   const [openRulesModal, setOpenRulesModal] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleSetting = () => {
+    setOpenSettingModal(true);
+  };
+
+  const handleNewGame = () => {
+    dispatch(startNewGame());
+  };
+
+  const handleRules = () => {
+    setOpenRulesModal(true);
+  };
 
   return (
     <>
@@ -81,21 +96,17 @@ export const Board = () => {
         <Grid item>
           <Grid container direction="row" justify="center" spacing={3}>
             <Grid item xs={12} sm={4} className={classes.center}>
-              <PrimaryButton size="medium">New Game</PrimaryButton>
+              <PrimaryButton size="medium" onClick={handleNewGame}>
+                New Game
+              </PrimaryButton>
             </Grid>
             <Grid item xs={12} sm={4} className={classes.center}>
-              <PrimaryButton
-                size="medium"
-                onClick={() => setOpenSettingModal(true)}
-              >
+              <PrimaryButton size="medium" onClick={handleSetting}>
                 Settings
               </PrimaryButton>
             </Grid>
             <Grid item xs={12} sm={4} className={classes.center}>
-              <PrimaryButton
-                size="medium"
-                onClick={() => setOpenRulesModal(true)}
-              >
+              <PrimaryButton size="medium" onClick={handleRules}>
                 Rules
               </PrimaryButton>
             </Grid>

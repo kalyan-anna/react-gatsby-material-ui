@@ -1,4 +1,5 @@
-import { CardFace, PACK_OF_CARDS } from '@state/snap';
+import { CardFace, humanCallsSnap, snapSelector } from '@state/snap';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Grid } from '@material-ui/core';
 import { PlayingCard } from 'components/ui/PlayingCard/PlayingCard';
@@ -6,21 +7,35 @@ import React from 'react';
 import { StyledPile } from '@ui';
 
 export const CenterPile = () => {
-  const allCards = PACK_OF_CARDS;
+  const cards = useSelector(snapSelector.centerPileCards);
+  const isMatching = useSelector(snapSelector.isMatching);
+  const dispatch = useDispatch();
+
+  const handleClicking = () => {
+    if (isMatching) {
+      dispatch(humanCallsSnap());
+    }
+  };
 
   return (
-    <Grid container spacing={2} justify="center" alignItems="center">
+    <Grid
+      container
+      spacing={2}
+      justify="center"
+      alignItems="center"
+      onClick={handleClicking}
+    >
       <Grid item xs={3} md={12}>
         <div></div>
       </Grid>
       <Grid item xs={6} md={12}>
         <StyledPile>
-          {allCards.map((card, index) => {
+          {cards.map((card, index) => {
             let position = index;
-            if (allCards.length > 1 && card.face === CardFace.FACE_UP) {
-              if (index === allCards.length - 1) {
+            if (cards.length > 1 && card.face === CardFace.FACE_UP) {
+              if (index === cards.length - 1) {
                 position += 50;
-              } else if (index === allCards.length - 1) {
+              } else if (index === cards.length - 1) {
                 position += 5;
               }
             }
@@ -28,7 +43,9 @@ export const CenterPile = () => {
               <PlayingCard
                 card={card}
                 position={position}
-                active={index === allCards.length - 1}
+                active={
+                  card.face === CardFace.FACE_UP && index === cards.length - 1
+                }
                 key={card.id}
               />
             );
