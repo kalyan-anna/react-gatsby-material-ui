@@ -1,10 +1,7 @@
-import { FlexContainer, FlexItem, PrimaryButton } from '@ui';
 import { Grid, styled } from '@material-ui/core';
 import {
   borders,
   compose,
-  display,
-  flexbox,
   palette,
   shadows,
   sizing,
@@ -15,10 +12,11 @@ import { green, grey } from '@material-ui/core/colors';
 import { CenterPile } from '../CenterPile/CenterPile';
 import { ComputerPile } from '../ComputerPile/ComputerPile';
 import { HumanPile } from '../HumanPile/HumanPile';
+import { PrimaryButton } from '@ui';
 import React from 'react';
 
 const BoardContainer = styled(Grid)(
-  compose(sizing, borders, spacing, palette, flexbox, shadows, display),
+  compose(sizing, borders, spacing, palette, shadows),
 );
 BoardContainer.defaultProps = {
   width: ['95%', '90%', '85%', '75%'],
@@ -31,38 +29,33 @@ BoardContainer.defaultProps = {
   borderColor: grey[200],
   border: 2,
   p: 2,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  flexDirection: 'column',
 };
 
 export const Board = () => {
   return (
-    <BoardContainer>
+    <BoardContainer
+      container
+      direction="column"
+      justify="flex-start"
+      alignItems="stretch"
+    >
       <Grid item container alignContent="center" style={{ flexGrow: 2 }}>
-        <FlexItem item xs={12} md={4}>
+        <Grid item xs={12} md={4}>
           <ComputerPile />
-        </FlexItem>
-        <FlexItem item xs={12} md={4}>
+        </Grid>
+        <Grid item xs={12} md={4}>
           <CenterPile />
-        </FlexItem>
-        <FlexItem item xs={12} md={4}>
+        </Grid>
+        <Grid item xs={12} md={4}>
           <HumanPile />
-        </FlexItem>
+        </Grid>
       </Grid>
 
-      <FlexContainer mx={[0, 3]}>
-        <FlexItem xs={12} md={4} my={[1, 0]}>
-          <PrimaryButton>New Game</PrimaryButton>
-        </FlexItem>
-        <FlexItem xs={12} md={4} my={[1, 0]}>
-          <PrimaryButton>Setting</PrimaryButton>
-        </FlexItem>
-        <FlexItem xs={12} md={4} my={[1, 0]}>
-          <PrimaryButton>Rules</PrimaryButton>
-        </FlexItem>
-      </FlexContainer>
+      <Grid container direction="row" justify="center" alignItems="center">
+        <PrimaryButton>New Game</PrimaryButton>
+        <PrimaryButton>Setting</PrimaryButton>
+        <PrimaryButton>Rules</PrimaryButton>
+      </Grid>
     </BoardContainer>
   );
 };

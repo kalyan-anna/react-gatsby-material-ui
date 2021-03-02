@@ -1,11 +1,11 @@
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, makeStyles, withStyles } from '@material-ui/core';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import { Footer } from 'components/ui/Footer/Footer';
-import { GridContainer } from '@ui';
 import { Header } from 'components/ui/Header/Header';
 import React from 'react';
 import { SEO } from '../SEO/SEO';
+import { brown } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   '@global': {
@@ -20,6 +20,13 @@ const useStyles = makeStyles({
     },
   },
 });
+
+const AppContainer = withStyles({
+  root: {
+    backgroundColor: brown[500],
+    minHeight: '100%',
+  },
+})(Grid);
 
 type DefaultLayoutProps = {
   pageTitle: string;
@@ -48,7 +55,12 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
   return (
     <>
       <SEO pageTitle={pageTitle} appTitle={appTitle} />
-      <GridContainer>
+      <AppContainer
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="stretch"
+      >
         <Header appTitle={appTitle} />
         <Grid
           item
@@ -59,7 +71,7 @@ export const DefaultLayout: React.FC<DefaultLayoutProps> = ({
           {children}
         </Grid>
         <Footer />
-      </GridContainer>
+      </AppContainer>
     </>
   );
 };
