@@ -1,4 +1,4 @@
-import { Box, Grid, makeStyles, styled } from '@material-ui/core';
+import { Grid, makeStyles, styled } from '@material-ui/core';
 import {
   borders,
   compose,
@@ -6,7 +6,6 @@ import {
   shadows,
   sizing,
   spacing,
-  textAlign,
 } from '@material-ui/system';
 import { green, grey } from '@material-ui/core/colors';
 
@@ -20,7 +19,7 @@ const BoardContainer = styled(Grid)(
   compose(sizing, borders, spacing, palette, shadows),
 );
 BoardContainer.defaultProps = {
-  width: ['95%', '90%', '85%', '75%'],
+  width: ['95%', '85%', '85%', '60%'],
   minHeight: ['300px', '500px'],
   maxHeight: ['800px'],
   bgcolor: green[500],
@@ -50,7 +49,7 @@ export const Board = () => {
       direction="column"
       justify="flex-start"
       alignItems="stretch"
-      spacing={2}
+      spacing={1}
     >
       <Grid item style={{ flexGrow: 2 }}>
         <Grid
@@ -59,7 +58,7 @@ export const Board = () => {
           direction="row"
           justify="space-around"
           alignItems="stretch"
-          spacing={2}
+          spacing={1}
           className={classes.fullHeight}
         >
           <Grid item xs={12} md={4} className={classes.center}>

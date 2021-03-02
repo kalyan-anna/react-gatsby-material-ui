@@ -1,11 +1,17 @@
+import { Grid } from '@material-ui/core';
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-
-const useStyles = makeStyles(() => {
-  root: {
-  }
-});
+import { StyledPile } from '@ui';
 
 export const CenterPile = () => {
-  return <div>center</div>;
+  return (
+    <Grid container spacing={2} justify="center" alignItems="center">
+      <Grid item xs={3} md={12}>
+        <div></div>
+      </Grid>
+      <Grid item xs={6} md={12}>
+        <StyledPile />
+      </Grid>
+      <Grid item xs={3} md={12}></Grid>
+    </Grid>
+  );
 };

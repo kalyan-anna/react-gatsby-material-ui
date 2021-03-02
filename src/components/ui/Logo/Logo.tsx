@@ -8,14 +8,14 @@ export const Logo = (props: any) => {
     query {
       mobileImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
+          fixed(width: 75, height: 75) {
             ...GatsbyImageSharpFixed
           }
         }
       }
       desktopImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 75, height: 75) {
+          fixed(width: 100, height: 100) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -38,5 +38,5 @@ export const Logo = (props: any) => {
     },
   ];
 
-  return <Img {...props} fixed={sources} alt="Pinata logo" />;
+  return <Img {...props} fixed={sources} alt="Snap logo" />;
 };

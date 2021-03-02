@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <div align="center">
-    <img alt="Gatsby" src="./src/images/logo.png" width="60" />
+    <img alt="Gatsby" src="./static/images/logo.png" width="60" />
   </div>
 </p>
 <h1 align="center">

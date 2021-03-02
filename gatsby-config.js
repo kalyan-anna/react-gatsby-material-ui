@@ -12,7 +12,7 @@ const cgf = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/static/images`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -26,7 +26,7 @@ const cgf = {
         background_color: `#e1e1e1`,
         theme_color: `#ffffff`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`,
+        icon: `static/images/logo.png`,
       },
     },
     {
