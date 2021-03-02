@@ -38,13 +38,3 @@ npm run test
 
 npm run lint
 
-## TODO
-
-Cypress E2E  
-StoryBook  
-UI Improvements  
-Accessibility  
-More UI Unit tests
-CI/CD  
-Performance Bundle Analyzer  
-Lazy loading components
