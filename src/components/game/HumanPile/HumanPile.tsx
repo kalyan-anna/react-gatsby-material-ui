@@ -1,4 +1,4 @@
-import { Avatar, Pile } from '@ui';
+import { Avatar, Pile, PlayerTurn, SnapBubble, WinnerBubble } from '@ui';
 
 import { Grid } from '@material-ui/core';
 import React from 'react';
@@ -12,7 +12,10 @@ export const HumanPile = () => {
       <Grid item xs={6} md={12}>
         <Pile cards={[]} />
       </Grid>
-      <Grid item xs={3} md={12}></Grid>
+      <Grid item xs={3} md={12}>
+        <WinnerBubble />
+        <PlayerTurn>Your turn</PlayerTurn>
+      </Grid>
     </Grid>
   );
 };

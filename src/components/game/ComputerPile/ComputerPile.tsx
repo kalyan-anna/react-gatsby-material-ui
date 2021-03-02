@@ -1,4 +1,4 @@
-import { Avatar, Pile } from '@ui';
+import { Avatar, Pile, PlayerTurn, SnapBubble, WinnerBubble } from '@ui';
 
 import { Grid } from '@material-ui/core';
 import React from 'react';
@@ -12,7 +12,18 @@ export const ComputerPile = () => {
       <Grid item xs={6} md={12}>
         <Pile cards={[]} />
       </Grid>
-      <Grid item xs={3} md={12}></Grid>
+      <Grid item xs={3} md={12}>
+        <Grid
+          container
+          spacing={2}
+          justify="center"
+          alignItems="center"
+          direction="column"
+        >
+          <SnapBubble />
+          <PlayerTurn>Computer's turn</PlayerTurn>
+        </Grid>
+      </Grid>
     </Grid>
   );
 };

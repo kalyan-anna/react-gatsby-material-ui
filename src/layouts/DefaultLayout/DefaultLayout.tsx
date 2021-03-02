@@ -10,7 +10,7 @@ import { globalStyles } from '../../theme/global';
 
 const AppContainer = withStyles({
   root: {
-    backgroundColor: brown[500],
+    backgroundColor: brown[400],
     minHeight: '100%',
   },
 })(Grid);

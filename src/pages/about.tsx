@@ -20,6 +20,10 @@ const About = () => {
             <li>material ui</li>
             <li>Redux toolkit</li>
           </ul>
+          <div>
+            <Box>Image credits:</Box>
+            <a href="https://pngtree.com">png from pngtree.com</a>
+          </div>
         </Box>
       </Container>
     </DefaultLayout>
