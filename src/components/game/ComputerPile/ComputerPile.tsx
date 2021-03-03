@@ -28,6 +28,7 @@ export const ComputerPile = () => {
     }
     if (isMatching) {
       dispatch(computerCallsSnap());
+      return;
     }
     if (whoseTurn === Player.COMPUTER && cards.length > 0) {
       dispatch(computerTurnsCard());
