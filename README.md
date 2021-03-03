@@ -20,14 +20,12 @@ https://admiring-panini-56fa63.netlify.app/
 npm run install
 
 npm run develop  
-access the application from  
 http://localhost:8000/
 
 OR
 
 npm run build  
 npm run serve
-access the application from  
 http://localhost:9000/
 
 ## Test
