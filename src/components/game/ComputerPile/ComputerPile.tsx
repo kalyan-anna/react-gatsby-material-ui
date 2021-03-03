@@ -23,12 +23,14 @@ export const ComputerPile = () => {
   const dispatch = useDispatch();
 
   useInterval(() => {
-    if (isPlaying && whoseTurn === Player.COMPUTER && cards.length > 0) {
-      if (isMatching) {
-        dispatch(computerCallsSnap());
-      } else {
-        dispatch(computerTurnsCard());
-      }
+    if (!isPlaying) {
+      return;
+    }
+    if (isMatching) {
+      dispatch(computerCallsSnap());
+    }
+    if (whoseTurn === Player.COMPUTER && cards.length > 0) {
+      dispatch(computerTurnsCard());
     }
   }, reactionTime);
 
