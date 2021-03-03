@@ -12,7 +12,7 @@ Sample project based on Material UI
 
 ## Cloud
 
-The application is deployed to cloud. (doesn't work coz netlify websites are HTTPS).  
+The application is deployed to cloud. 
 https://admiring-panini-56fa63.netlify.app/
 
 ## Instructions to Run
